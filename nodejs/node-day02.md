@@ -6,7 +6,7 @@
 
 + path 读取路径 
 
-+ options 可选参数 默认为  buffer   
++ options 可选参数 默认为 null    
 
 + callback 读取文件的回调函数  err,data  
 
@@ -42,17 +42,19 @@
 
   ```
     // 1.0 引入fs模块 
-
+  
     const fs = require('fs')
-
+  
     // 2.0 读取文件 
-
+  
     fs.witerFile('./files/2.txt','ssssss',(err)=>{
-
+  
       if(err){ return console.log(err.message)}
-
+  
       console.log('写入成功')
     })
+    
+    ps: 写入的文件会覆盖之前的内容
   ```
 
 ### 复制文件 
@@ -79,6 +81,7 @@
 + callback 拷贝的回调函数   err  
 
 ```
+  // node 需要时 v8.5 以上的
   const fs = require("fs");
 
   // 默认情况下，destination.txt 将创建或覆盖
@@ -108,13 +111,15 @@
   const path = require('path')
 
   path.join(__dirname,'./files/1.txt')
+  
+  ps: 以后涉及到路径拼接的时候  尽量使用path模块 
 ```
 
 ## 三、 __dirname 、__filename 路径
 
-+  __dirname  
++ __dirname  
 
-/Users/fly/Desktop
+  /Users/fly/Desktop
 
 + __filename  
   /Users/fly/Desktop/001.js 
